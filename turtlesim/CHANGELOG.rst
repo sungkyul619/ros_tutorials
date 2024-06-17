@@ -2,8 +2,8 @@
 Changelog for package turtlesim
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+1.9.1 (2024-06-17)
+------------------
 * Add icon for Jazzy. (`#167 <https://github.com/ros/ros_tutorials/issues/167>`_)
 * [teleop_turtle_key] update usage string to match keys captured by keyboard (`#165 <https://github.com/ros/ros_tutorials/issues/165>`_)
 * Contributors: Marco A. Gutierrez, Mikael Arguedas
