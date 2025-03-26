@@ -1,0 +1,37 @@
+<library path="lib/liblocal_planner_nodelet">
+    <class name="LocalPlannerNodelet" type="avoidance::LocalPlannerNodelet" base_class_type="nodelet::Nodelet">
+        <description>
+            Local planner nodelet
+        </description>
+    </class>
+
+</library>
+
+
+
+
+<!-- 
+
+- nodelet.xml 파일이 필요한 이유:
+플러그인 방식으로 동적으로 클래스를 로드하려면, 이 파일에서 클래스와 라이브러리 경로를 정의해야 합니다.
+nodelet.xml에서 정의된 Nodelet은 실행 시에 동적으로 로드되고, 
+이 클래스를 실행할 때마다 새로운 프로세스를 생성하는 대신 기존 프로세스 내에서 실행됩니다. 
+
+- CMakeLists.txt와 nodelet.xml의 차이:
+CMakeLists.txt는 패키지를 컴파일하고 빌드하는 데 사용되는 파일입니다. 
+nodelet.xml 파일은 Nodelet을 ROS 시스템에 등록하고, 
+플러그인으로 동적으로 로드하기 위해 사용됩니다. 
+이 파일은 Nodelet을 정의할 때, **class**와 library 경로를 ROS에 알려주는 역할을 합니다. 
+
+CMakeLists.txt에서 Nodelet 관련 코드를 컴파일하고 라이브러리 파일을 생성하지만, 
+실제로 이 Nodelet을 ROS 시스템에 등록하고 실행하려면 nodelet.xml 파일이 필요합니다.
+C++ 코드에서는 Nodelet 클래스를 정의하고, 이 클래스는 nodelet::Nodelet을 상속해야 합니다.
+
+<class name="LocalPlannerNodelet" type="avoidance::LocalPlannerNodelet" base_class_type="nodelet::Nodelet">
+name="LocalPlannerNodelet": Nodelet 클래스의 이름입니다.
+type="avoidance::LocalPlannerNodelet": 실제 Nodelet 클래스가 구현된 네임스페이스와 클래스 이름. 
+    즉, avoidance 네임스페이스에 있는 LocalPlannerNodelet 클래스입니다.
+base_class_type="nodelet::Nodelet": 이 클래스가 nodelet::Nodelet을 상속받아 Nodelet으로 동작한다는 것을 나타냅니다.
+
+
+-->
